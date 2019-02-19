@@ -2,8 +2,10 @@
   'targets': [
     {
       'target_name': 'clipboard',
-      'type': 'executable',
       'sources': [],
+      "include_dirs" : [
+        "<!(node -e \"require('nan')\")"
+      ],
       'conditions': [
         ['OS == "linux"', {
           'sources': [
@@ -18,11 +20,8 @@
         ['OS == "win"', {
           'sources': [
              'clipboard/cpb_win.cc',
-          ]
+          ],
         }],
-      ],
-      'include_dirs': [
-        '<!(node -e \'require("nan")\')'
       ],
     },
   ],

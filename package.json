@@ -4,7 +4,8 @@
   "description": "reading file path from clipboard",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "node clipboard.test.js",
+    "build": "node-gyp build"
   },
   "author": "edeity",
   "license": "MIT",
