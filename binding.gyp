@@ -16,9 +16,9 @@
           'sources': [
              'clipboard/cpb_mac.mm',
           ],
-	  'libraries': [
+	          'libraries': [
              '-framework AppKit',
-	  ]
+	        ]
         }],
         ['OS == "win"', {
           'sources': [

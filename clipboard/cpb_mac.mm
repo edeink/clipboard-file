@@ -11,12 +11,16 @@ void Method(const Nan::FunctionCallbackInfo<v8::Value>& info) {
   // TODO 返回的是 file 开头的 URL，需要在这里处理吧？
   // 目前总是单个路径
   NSString *fileURL = [pboard stringForType:NSPasteboardTypeFileURL];
-  uint i = 0;
+  NSString *fileName = [pboard stringForType:NSPasteboardTypeString];
+  // [pboard releaseGlobally()]
 
   if (fileURL != nil) {
-    const char *szFilePath = [fileURL UTF8String];
-    v8::Local<v8::String> tempPath = Nan::New<v8::String>(szFilePath).ToLocalChecked();
-    Nan::Set(fileArray, i, tempPath);
+    const char *fileUtf8URL = [fileURL UTF8String];
+    const char *fileUtf8Name = [fileName UTF8String];
+    v8::Local<v8::String> tempPath = Nan::New<v8::String>(fileUtf8URL).ToLocalChecked();
+    v8::Local<v8::String> tempName = Nan::New<v8::String>(fileUtf8Name).ToLocalChecked();
+    Nan::Set(fileArray, 0, tempPath);
+    Nan::Set(fileArray, 1, tempName);
   }
 
   info.GetReturnValue().Set(fileArray);
