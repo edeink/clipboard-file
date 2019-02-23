@@ -1,6 +1,6 @@
 {
   "name": "clipboard-file",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "reading file path from clipboard",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,10 @@
     "build": "node-gyp build",
     "rebuild": "node-gyp rebuild"
   },
+  "keywords": [
+    "clipboard",
+    "files"
+  ],
   "author": "edeity",
   "license": "MIT",
   "gypfile": true,

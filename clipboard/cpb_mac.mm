@@ -8,11 +8,8 @@ void Method(const Nan::FunctionCallbackInfo<v8::Value>& info) {
 
   // TODO Objective-C++ 自动引用回收问题
   // TODO NSPasteboardTypeFileURL 只支持 10.13 以及以后的版本，是否需要兼容之前的 NSFilenamesPboardType
-  // TODO 返回的是 file 开头的 URL，需要在这里处理吧？
-  // 目前总是单个路径
   NSString *fileURL = [pboard stringForType:NSPasteboardTypeFileURL];
   NSString *fileName = [pboard stringForType:NSPasteboardTypeString];
-  // [pboard releaseGlobally()]
 
   if (fileURL != nil) {
     const char *fileUtf8URL = [fileURL UTF8String];
