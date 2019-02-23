@@ -14,8 +14,11 @@
         }],
         ['OS == "mac"', {
           'sources': [
-             'clipboard/cpb_mac.cc',
-          ]
+             'clipboard/cpb_mac.mm',
+          ],
+	  'libraries': [
+             '-framework AppKit',
+	  ]
         }],
         ['OS == "win"', {
           'sources': [
